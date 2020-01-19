@@ -9,7 +9,198 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      .welcome-section
+        section.fullscreen-section.hero
+          .container.hero__container 
+            header.hero__header
+              .hero__logo
+                .logo КА
+              .hero__nav  
+                nav.nav
+                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a(href="").nav__link #{item} 
+              .socials
+                ul.socials__list
+                  each social in ['insta', 'vk', 'github']  
+                    li.socials__item
+                      a(class=`socials__link socials__link_${social}` href="#")
+                        +icon(social,"socials__icon")
+            .hero__content  
+              .promo
+                .promo__site Личный сайт #[br] веб разработчика
+                .promo__myname Куликов #[br] Антон
+            .hero__scroll
+              a.scroll__link(href="#") Скролл
+              +icon('scroll', 'scroll__icon')
+        section.myinfo
+          .container.myinfo__container
+            .myinfo__left
+              .user
+                .avatar.user__avatar
+                  +image('content/user.jpg', 'user-pic')
+                ul.user__desc
+                  - 
+                    var items = [
+                      ['Проживаю:', 'Чехов'],
+                      ['Возраст:', '23'],
+                      ['Родился:', 'Чехов'],
+                    ]
+                  each item in items
+                    li.user__desc-item
+                      .user__key #{item[0]}
+                      .user__value #{item[1]}
+            .myinfo__right
+              h4.myinfo__prolog Привет, меня зовут
+              h2.myinfo__title Куликов Антон
+              .myinfo__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ad, facilis vero deleniti obcaecati iusto consequatur dolor fugit itaque cupiditate veniam porro maiores eaque voluptate inventore voluptatibus! Eos, dolor ad.
+              .myinfo__ps Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique ipsa laboriosam repellat exercitationem dolorum enim rem, asperiores debitis quaerat, a, vel in neque impedit magnam perferendis? Voluptatibus, quasi. Mollitia?
+      section.features
+        .hands
+        .container.features__container  
+          .features__title
+            h2.section-title.features__title-text Чем я могу быть вам полезен
+            .features__desc
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa veniam earum cupiditate ut, soluta deleniti vel deserunt aliquid nisi nihil molestiae rerum nesciunt labore enim inventore ipsum, cum pariatur corporis.
+          ul.user-skills
+            - 
+              var skills = [
+                ['Frontend', ['HTML5', 'CSS3', 'Javascript']],
+                ['Workflow', ['GIT', 'Terminal', 'Gulp']],
+              ]
+            each item in skills 
+              li.user-skills__item.skills-row 
+                h3.skills-row__title #{item[0]}
+                ul.skills-row__list
+                  each skill in item[1]
+                    li.skills-row__item
+                      .skill
+                        <svg viewBox="-10 -10 220 220">
+                          <g fill="none" stroke-width="3" transform="translate(100,100)">
+                          <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#454341"/>
+                          <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#454341"/>
+                          <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#454341"/>
+                          <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#454341"/>
+                          <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#454341"/>
+                          <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#454341"/>
+                          </g>
+                        </svg>
+                        <svg viewBox="-10 -10 220 220">
+                          <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="81"></path>
+                        </svg>
+                        //-   linear-gradient()
+                        .skill__title #{skill}
+
+      section.fullscreen-section.works
+        .container
+          h2.section-title.works__title Мои работы
+          .works__content
+            .works__left
+              .slider
+                img(src=require('images/content/works_preview.png')).slider__fillpic
+                .slider__preview
+                  ul.previews
+                    - for (var i = 0; i < 3; i++)
+                      li.previews__item
+                        +image('content/work_small.png', 'previews__pic')
+                .slider__buttons
+                  .slider-button
+                    button.slider-buttons__item.slider-buttons__item--slide--prev &#10094; 
+                    button.slider-buttons__item.slider-buttons__item--slide--next &#10095;
+            .works__right
+              .works__tags
+                - var tags = ['html', 'css', 'javascript']
+                each tag in tags
+                  ul.tags
+                    li.tags__item #{tag}
+              .works__text
+                h3.works__title Сайт школы
+                .works__desc-text
+                  p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam dolorum nulla placeat cumque nostrum commodi ad numquam dolores distinctio officiis molestiae, assumenda omnis ut voluptas itaque eligendi mollitia earum. Tenetur.
+                a.iconed-link
+                  +icon('link', 'iconed-link__icon')
+                  .iconed-link__text Посмотреть сайт
+      section.comments
+        .container.comments__container
+          .reviews
+            .reviews__header
+              .section-title.reviews__title Что обо мне говорят
+              .reviews__nav-block
+                a.reviews__nav-block-previous &#10094;          
+                a.reviews__nav-block-next &#10095;         
+            .reviews__slider  
+              ul.reviews__list
+                li.reviews__item
+                  .reviews__text
+                    +icon('quote', 'reviews__icon')
+                    p.reviews__text-desc Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae rerum perferendis quibusdam repellendus! Eveniet similique aliquid laudantium molestiae accusamus?
+                  .reviews__user
+                    .reviews__avatar
+                      +image('content/avatar1.png', 'reviews__avatar-pic')
+                    .reviews__info  
+                      .reviews__name Ковальчук Дмитрий
+                      .reviews__func Основатель LoftSchool
+                li.reviews__item
+                  .reviews__text 
+                    +icon('quote', 'reviews__icon')
+                    p.reviews__text-desc Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae rerum perferendis quibusdam repellendus! Eveniet similique aliquid laudantium molestiae accusamus?
+                  .reviews__user
+                    .reviews__avatar
+                      +image('content/avatar2.png', 'reviews__avatar-pic')
+                    .reviews__info  
+                      .reviews__name Ковальчук Дмитрий
+                      .reviews__func Основатель LoftSchool
+          .contacts
+            .section-title.contacts__title Связаться со мной    
+            form.form(action="post")
+              .form__row
+                label.form__label
+                  .form__label-title Введите ваше имя
+                  .input
+                    .input__icon.input__icon-user
+                    input(type="text").input__elem
+                label.form__label
+                  .form__label-title Введите ваш email
+                  .input
+                    .input__icon.input__icon-email
+                    input(type="text").input__elem
+              .form__row
+                label.form__label
+                  .form__label-title Введите ваш комментарий
+                  .input
+                    .input__icon.input__icon-comment
+                    textarea.input__textarea(name="comment", cols="56", rows="2")
+              .form__row
+                button.form__sub-btn(type="submit") Отправить
+      footer.footer
+        .container.footer__container
+          .footer__author
+            span.footer__year © 2020
+            .footer__developer
+              .footer__developer-name Куликов Антон
+              .footer__developer-site Личный сайт веб разработчика
+          .footer__adds
+            .footer__nav
+              nav.nav
+                - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                ul.nav__list
+                  each item in menu
+                    li.nav__item
+                      a(href="").nav__link #{item}
+            .footer__info
+              .footer__comm
+                .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool
+                .socials
+                ul.socials__list
+                  each social in ['insta', 'vk', 'github']  
+                    li.socials__item.footer__social-item
+                      a(class=`socials__link socials__link_${social}` href="#")
+                        +icon(social,"socials__icon")
+              .footer__phrase
+                .footer__phrase-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат
+                .footer__sign Martin Golding
+      //- +image('content/user.jpg', 'user-pic')
+      //- +icon('link', 'link-class')
+      //- .icon-bg

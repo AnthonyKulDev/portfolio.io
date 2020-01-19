@@ -1,0 +1,41 @@
+.skill {
+  position: relative;
+}
+
+/* .skill__shape {
+  width: 200px;
+  height: 200px;
+  fill: transparent;
+  stroke: #454341;
+  stroke-width: 3px;
+} */
+
+.skill__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) 
+}
+
+.skill svg {
+width: 140px;
+height: 140px;
+}
+
+.skill svg:nth-child(2) {
+position: absolute;
+left: 0;
+top: 0;
+-webkit-transform: rotate(-90deg);
+transform: rotate(-90deg);
+}
+.skill svg:nth-child(2) path {
+fill: none;
+stroke-width: 15;
+stroke-dasharray: 629;
+stroke: #d47e1e;
+opacity: .9;
+-webkit-animation: load 10s;
+animation: load 10s;
+}
