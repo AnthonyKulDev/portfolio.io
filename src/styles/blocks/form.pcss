@@ -1,6 +1,7 @@
 .form__row {
   display: flex;
   margin-bottom: 40px;
+
   @include phones {
     flex-direction: column;
   }
@@ -11,10 +12,12 @@
   &:last-child {
     margin-right: 0;
   }
+
   @include tablets {
     margin-right: 10px;
     flex: 1;
   }
+
   @include phones {
     margin-right: 0;
     margin-bottom: 40px;
@@ -29,8 +32,8 @@
   color: #3f4245;
   font-weight: 600;
   margin-bottom: 10px;
+  padding-left: 50px;
   @include tablets {
-    padding-left: 50px;
   }
   @include phones {
     margin-bottom: 15px;

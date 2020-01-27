@@ -73,13 +73,12 @@ html(lang="ru")
             .myinfo__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ad, facilis vero deleniti obcaecati iusto consequatur dolor fugit itaque cupiditate veniam porro maiores eaque voluptate inventore voluptatibus! Eos, dolor ad.
             .myinfo__ps Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique ipsa laboriosam repellat exercitationem dolorum enim rem, asperiores debitis quaerat, a, vel in neque impedit magnam perferendis? Voluptatibus, quasi. Mollitia?
       section.features
-        .hands
         .container.features__container  
           .features__title
             h2.section-title.features__title-text Чем я могу быть вам полезен
             .features__desc
               p Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa veniam earum cupiditate ut, soluta deleniti vel deserunt aliquid nisi nihil molestiae rerum nesciunt labore enim inventore ipsum, cum pariatur corporis.
-          .values__widget
+          .features__widget
             #skills-component
       section.works
         .container
@@ -96,6 +95,7 @@ html(lang="ru")
                 .slider__buttons
                   .slider-button
                     button.slider-buttons__item.slider-buttons__item--slide--prev &#10094; 
+                  .slider-button
                     button.slider-buttons__item.slider-buttons__item--slide--next &#10095;
             .works__right
               .works__tags
@@ -113,22 +113,21 @@ html(lang="ru")
       section.comments
         .container.comments__container
           .reviews(@click="checkArrows" @touchend="checkArrows")
-            .container.reviews__container
-              .reviews__header
-                .section-title.reviews__title Что обо мне говорят
-                .reviews__nav-block
-                  button.reviews__nav-block-previous(@click="previous" :disabled='true') &#10094;
-                  button.reviews__nav-block-next(@click="next" :disabled='false') &#10095;
-              flickity(ref="flickity" :options="flickityOptions").reviews__slider
-                .reviews__item(v-for="review in reviews")
-                  .reviews__text 
-                    p.reviews__text-desc {{review.review}}
-                  .reviews__user
-                    .reviews__avatar
-                      img(:src="review.photo", alt="").reviews__avatar-pic
-                    .reviews__info  
-                      .reviews__name {{review.name}}
-                      .reviews__func {{review.about}}
+            .reviews__header
+              .section-title.reviews__title Что обо мне говорят
+              .reviews__nav-block
+                button.reviews__nav-block-previous(@click="previous" :disabled='true') &#10094;
+                button.reviews__nav-block-next(@click="next" :disabled='false') &#10095;
+            flickity(ref="flickity" :options="flickityOptions").reviews__slider
+              .reviews__item(v-for="review in reviews")
+                .reviews__text 
+                  p.reviews__text-desc {{review.review}}
+                .reviews__user
+                  .reviews__avatar
+                    img(:src="review.photo", alt="").reviews__avatar-pic
+                  .reviews__info  
+                    .reviews__name {{review.name}}
+                    .reviews__func {{review.about}}
           .contacts
             .section-title.contacts__title Связаться со мной    
             form.form(action="post")

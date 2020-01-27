@@ -1,11 +1,15 @@
 .footer {
   background-color: #222427;
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 .footer__container {
   display: flex;
   justify-content: space-between;
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .footer__year {
@@ -24,8 +28,14 @@
   justify-content: flex-start;
   margin-right: 140px;
   width: 20%;
+
   @include desktop {
     flex-direction: column;
+  }
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 
@@ -41,10 +51,18 @@
   font-weight: bold;
   color: #fff;
   margin-bottom: 25px;
+
+  @include phones {
+    margin-bottom: 10px;
+  }
 }
 
 .footer__nav {
   margin-bottom: 60px;
+
+  @include phones {
+    margin-bottom: 40px;
+  }
 }
 
 .footer__info {
@@ -58,12 +76,23 @@
 
 .footer__text {
   margin-bottom: 30px;
+
+  @include phones {
+    width: 80%;
+  }
 }
 
 .footer__social-item {
   padding: 15px;
   border: 1px solid #716c68;
-  border-radius: 50%
+  border-radius: 50%;
+  &:hover {
+    border: 1px solid #ff9a00;
+    .socials__icon {
+      fill: #ff9a00;
+    }
+  }
+
 }
 
 .footer__comm {

@@ -17,6 +17,11 @@
 
 .input__textarea {
   resize: none;
+  min-width: 615px;
+
+  @include tablets {
+    min-width: unset;
+  }
 }
 
 .input__icon {
