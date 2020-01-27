@@ -6,15 +6,24 @@
 
 .user__avatar {
   margin-bottom: 80px;
+  @include phones {
+    margin-bottom: 30px;
+  }
 }
 
 .user__desc {
   width: 100%;
-
-}  
+  @include phones {
+    margin-bottom: 50px;
+  }
+} 
+ 
 .user__desc-item {
   display: flex;
   margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .user__value {

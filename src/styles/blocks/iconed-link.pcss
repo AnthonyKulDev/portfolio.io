@@ -4,6 +4,12 @@
   font-size: 18px;
   font-weight: bold;
   color: #586fd3;
+  @include tablets {
+    justify-content: center;
+  }
+  @include phones {
+    justify-content: flex-start;
+  }
 }
 
 .iconed-link__icon {

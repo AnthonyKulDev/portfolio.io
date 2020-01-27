@@ -8,29 +8,29 @@
   font-weight: bold;
   padding-top: 150px;
   padding-bottom: 150px;
-  /* &:before {
-    background: url(../images/content/Руки.png) center center no-repeat;
-    display: block;
-    left: 0;
-    top: 0;
-  } */
 }
 
 .features__container  {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .features__title {
   max-width: 580px;
+  align-self: center;
 
   &-text {
     margin-bottom: 65px;
     color: #fff;
+    @include phones {
+      margin-bottom: 20px;
+    }
   }
 }
 
 .features__desc {
   margin-bottom: 100px;
+  @include phones {
+    margin-bottom: 50px;
+  }
 }

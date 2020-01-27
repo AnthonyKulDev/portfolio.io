@@ -9,54 +9,69 @@ html(lang="ru")
     title Portfolio | main page
   body
     .wrapper
-      .welcome-section
-        section.fullscreen-section.hero
-          .container.hero__container 
-            header.hero__header
-              .hero__logo
-                .logo КА
-              .hero__nav  
-                nav.nav
-                  - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-                  ul.nav__list
-                    each item in menu
-                      li.nav__item
-                        a(href="").nav__link #{item} 
+      .parallax
+        .parallax__layer(data-speed="0.1")
+          +image("content/layer-01.png", 'parallax__image')
+        .parallax__layer(data-speed="0.2")
+          +image("content/layer-02.png", 'parallax__image')
+        .parallax__layer(data-speed="0.4")
+          +image("content/layer-03.png", 'parallax__image')
+        .parallax__layer(data-speed="0.9")
+          +image("content/layer-04.png", 'parallax__image')
+        .parallax__layer(data-speed="0.9")
+          +image("content/layer-05.png", 'parallax__image')
+        .parallax__layer(data-speed="0.9")
+          +image("content/layer-06.png", 'parallax__image')
+      section.fullscreen-section.hero
+        .container.hero__container 
+          header.hero__header
+            .hero__logo
+              .logo КА
+            .hero__nav  
+              nav.nav
+                - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+                ul.nav__list
+                  each item in menu
+                    li.nav__item
+                      a(href="").nav__link #{item} 
+            .hero__socials  
               .socials
                 ul.socials__list
                   each social in ['insta', 'vk', 'github']  
                     li.socials__item
                       a(class=`socials__link socials__link_${social}` href="#")
                         +icon(social,"socials__icon")
-            .hero__content  
-              .promo
-                .promo__site Личный сайт #[br] веб разработчика
-                .promo__myname Куликов #[br] Антон
-            .hero__scroll
-              a.scroll__link(href="#") Скролл
-              +icon('scroll', 'scroll__icon')
-        section.myinfo
-          .container.myinfo__container
-            .myinfo__left
-              .user
-                .avatar.user__avatar
-                  +image('content/user.jpg', 'user-pic')
-                ul.user__desc
-                  - 
-                    var items = [
-                      ['Проживаю:', 'Чехов'],
-                      ['Возраст:', '23'],
-                      ['Родился:', 'Чехов'],
-                    ]
-                  each item in items
-                    li.user__desc-item
-                      .user__key #{item[0]}
-                      .user__value #{item[1]}
-            .myinfo__right
-              h4.myinfo__prolog Привет, меня зовут
-              h2.myinfo__title Куликов Антон
-              .myinfo__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ad, facilis vero deleniti obcaecati iusto consequatur dolor fugit itaque cupiditate veniam porro maiores eaque voluptate inventore voluptatibus! Eos, dolor ad.
-              .myinfo__ps Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique ipsa laboriosam repellat exercitationem dolorum enim rem, asperiores debitis quaerat, a, vel in neque impedit magnam perferendis? Voluptatibus, quasi. Mollitia?
+            a.hamburger-menu-link
+              .hamburger-menu-link__bars
+          .hero__content  
+            .promo
+              .promo__site Личный сайт #[br] веб разработчика
+              .promo__myname Куликов #[br] Антон
+          .hero__scroll
+            a.scroll__link(href="#") Скролл
+            +icon('scroll', 'scroll__icon')
+      section.myinfo
+        .container.myinfo__container
+          .myinfo__left
+            .user
+              .avatar.user__avatar
+                +image('content/user.jpg', 'user-pic')
+              ul.user__desc
+                - 
+                  var items = [
+                    ['Проживаю:', 'Чехов'],
+                    ['Возраст:', '23'],
+                    ['Родился:', 'Чехов'],
+                  ]
+                each item in items
+                  li.user__desc-item
+                    .user__key #{item[0]}
+                    .user__value #{item[1]}
+          .myinfo__right
+            h4.myinfo__prolog Привет, меня зовут
+            h2.myinfo__title Куликов Антон
+            .myinfo__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ad, facilis vero deleniti obcaecati iusto consequatur dolor fugit itaque cupiditate veniam porro maiores eaque voluptate inventore voluptatibus! Eos, dolor ad.
+            .myinfo__ps Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique ipsa laboriosam repellat exercitationem dolorum enim rem, asperiores debitis quaerat, a, vel in neque impedit magnam perferendis? Voluptatibus, quasi. Mollitia?
       section.features
         .hands
         .container.features__container  
@@ -64,36 +79,9 @@ html(lang="ru")
             h2.section-title.features__title-text Чем я могу быть вам полезен
             .features__desc
               p Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa veniam earum cupiditate ut, soluta deleniti vel deserunt aliquid nisi nihil molestiae rerum nesciunt labore enim inventore ipsum, cum pariatur corporis.
-          ul.user-skills
-            - 
-              var skills = [
-                ['Frontend', ['HTML5', 'CSS3', 'Javascript']],
-                ['Workflow', ['GIT', 'Terminal', 'Gulp']],
-              ]
-            each item in skills 
-              li.user-skills__item.skills-row 
-                h3.skills-row__title #{item[0]}
-                ul.skills-row__list
-                  each skill in item[1]
-                    li.skills-row__item
-                      .skill
-                        <svg viewBox="-10 -10 220 220">
-                          <g fill="none" stroke-width="3" transform="translate(100,100)">
-                          <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#454341"/>
-                          <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#454341"/>
-                          <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#454341"/>
-                          <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#454341"/>
-                          <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#454341"/>
-                          <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#454341"/>
-                          </g>
-                        </svg>
-                        <svg viewBox="-10 -10 220 220">
-                          <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="81"></path>
-                        </svg>
-                        //-   linear-gradient()
-                        .skill__title #{skill}
-
-      section.fullscreen-section.works
+          .values__widget
+            #skills-component
+      section.works
         .container
           h2.section-title.works__title Мои работы
           .works__content
@@ -111,12 +99,12 @@ html(lang="ru")
                     button.slider-buttons__item.slider-buttons__item--slide--next &#10095;
             .works__right
               .works__tags
-                - var tags = ['html', 'css', 'javascript']
+                - var tags = ['HTML', 'CSS', 'JavaScript']
                 each tag in tags
                   ul.tags
                     li.tags__item #{tag}
               .works__text
-                h3.works__title Сайт школы
+                h3.section-title.works__text-title Сайт школы образования
                 .works__desc-text
                   p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam dolorum nulla placeat cumque nostrum commodi ad numquam dolores distinctio officiis molestiae, assumenda omnis ut voluptas itaque eligendi mollitia earum. Tenetur.
                 a.iconed-link
@@ -124,34 +112,23 @@ html(lang="ru")
                   .iconed-link__text Посмотреть сайт
       section.comments
         .container.comments__container
-          .reviews
-            .reviews__header
-              .section-title.reviews__title Что обо мне говорят
-              .reviews__nav-block
-                a.reviews__nav-block-previous &#10094;          
-                a.reviews__nav-block-next &#10095;         
-            .reviews__slider  
-              ul.reviews__list
-                li.reviews__item
-                  .reviews__text
-                    +icon('quote', 'reviews__icon')
-                    p.reviews__text-desc Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae rerum perferendis quibusdam repellendus! Eveniet similique aliquid laudantium molestiae accusamus?
-                  .reviews__user
-                    .reviews__avatar
-                      +image('content/avatar1.png', 'reviews__avatar-pic')
-                    .reviews__info  
-                      .reviews__name Ковальчук Дмитрий
-                      .reviews__func Основатель LoftSchool
-                li.reviews__item
+          .reviews(@click="checkArrows" @touchend="checkArrows")
+            .container.reviews__container
+              .reviews__header
+                .section-title.reviews__title Что обо мне говорят
+                .reviews__nav-block
+                  button.reviews__nav-block-previous(@click="previous" :disabled='true') &#10094;
+                  button.reviews__nav-block-next(@click="next" :disabled='false') &#10095;
+              flickity(ref="flickity" :options="flickityOptions").reviews__slider
+                .reviews__item(v-for="review in reviews")
                   .reviews__text 
-                    +icon('quote', 'reviews__icon')
-                    p.reviews__text-desc Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae rerum perferendis quibusdam repellendus! Eveniet similique aliquid laudantium molestiae accusamus?
+                    p.reviews__text-desc {{review.review}}
                   .reviews__user
                     .reviews__avatar
-                      +image('content/avatar2.png', 'reviews__avatar-pic')
+                      img(:src="review.photo", alt="").reviews__avatar-pic
                     .reviews__info  
-                      .reviews__name Ковальчук Дмитрий
-                      .reviews__func Основатель LoftSchool
+                      .reviews__name {{review.name}}
+                      .reviews__func {{review.about}}
           .contacts
             .section-title.contacts__title Связаться со мной    
             form.form(action="post")
@@ -168,10 +145,12 @@ html(lang="ru")
                     input(type="text").input__elem
               .form__row
                 label.form__label
-                  .form__label-title Введите ваш комментарий
+                  .form__label-title 
+                    span Введите ваш комментарий
+                    .form__phone-title Сообщение к письму
                   .input
                     .input__icon.input__icon-comment
-                    textarea.input__textarea(name="comment", cols="56", rows="2")
+                    textarea.input__textarea(name="comment")
               .form__row
                 button.form__sub-btn(type="submit") Отправить
       footer.footer
@@ -192,15 +171,34 @@ html(lang="ru")
             .footer__info
               .footer__comm
                 .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool
-                .socials
-                ul.socials__list
-                  each social in ['insta', 'vk', 'github']  
-                    li.socials__item.footer__social-item
-                      a(class=`socials__link socials__link_${social}` href="#")
-                        +icon(social,"socials__icon")
+                .footer__socials
+                  .socials
+                    ul.socials__list
+                      each social in ['insta', 'vk', 'github']  
+                        li.socials__item.footer__social-item
+                          a(class=`socials__link socials__link_${social}` href="#")
+                            +icon(social,"socials__icon")
               .footer__phrase
                 .footer__phrase-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат
                 .footer__sign Martin Golding
       //- +image('content/user.jpg', 'user-pic')
       //- +icon('link', 'link-class')
       //- .icon-bg
+    .hamburger-menu#hamburger-menu
+      .hamburger-menu__items
+        nav.nav
+          - var menu = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+          ul.nav__list
+            each item in menu
+              li.nav__item
+                a(href="").nav__link #{item}
+      .hamburger-menu__socials
+        ul.socials__list
+          each social in ['insta', 'vk', 'github']  
+            li.socials__item
+              a(class=`socials__link socials__link_${social}` href="#")
+                +icon(social,"socials__icon")
+      a.hamburger-menu__close
+        +icon('remove',"hamburger-menu__close-icon")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    include ./templates/entry.pug

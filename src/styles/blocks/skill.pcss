@@ -1,41 +1,38 @@
 .skill {
   position: relative;
+  width: 166px;
+  height: 166px;
+
+  @include tablets {
+    width: 135px;
+    height: 135px;
+  }
 }
 
-/* .skill__shape {
-  width: 200px;
-  height: 200px;
+.skill__circle {
   fill: transparent;
-  stroke: #454341;
-  stroke-width: 3px;
-} */
+  &_under {
+    stroke: #454341;
+    stroke-width: 2px;
+  }
+  &_above {
+    stroke-width: 5px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 100;
+  }
+}
 
-.skill__title {
+.skill__circle-text {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%) 
-}
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba($text-color, .5);
+  padding: 14px;
 
-.skill svg {
-width: 140px;
-height: 140px;
-}
-
-.skill svg:nth-child(2) {
-position: absolute;
-left: 0;
-top: 0;
--webkit-transform: rotate(-90deg);
-transform: rotate(-90deg);
-}
-.skill svg:nth-child(2) path {
-fill: none;
-stroke-width: 15;
-stroke-dasharray: 629;
-stroke: #d47e1e;
-opacity: .9;
--webkit-animation: load 10s;
-animation: load 10s;
+  @include phones {
+    font-size: 16px;
+  }
 }

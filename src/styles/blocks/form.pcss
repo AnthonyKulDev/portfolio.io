@@ -1,10 +1,27 @@
 .form__row {
   display: flex;
   margin-bottom: 40px;
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .form__label {
   margin-right: 95px;
+  &:last-child {
+    margin-right: 0;
+  }
+  @include tablets {
+    margin-right: 10px;
+    flex: 1;
+  }
+  @include phones {
+    margin-right: 0;
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .form__label-title {
@@ -12,6 +29,18 @@
   color: #3f4245;
   font-weight: 600;
   margin-bottom: 10px;
+  @include tablets {
+    padding-left: 50px;
+  }
+  @include phones {
+    margin-bottom: 15px;
+  }
+
+  & span {
+    @include phones {
+      display: none;
+    }
+  }
 }
 
 .form__sub-btn {
@@ -21,4 +50,18 @@
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
+  @include tablets {
+    margin: 0 auto;
+  }
+  @include phones {
+    padding: 30px 90px;
+  }
 }
+
+.form__phone-title {
+  display: none;
+  @include phones {
+    display: inline-block;
+  }
+}
+

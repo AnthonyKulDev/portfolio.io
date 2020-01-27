@@ -14,13 +14,19 @@
   font-weight: 600;
   margin-right: 60px;
   white-space: nowrap;
+  @include desktop {
+    margin-bottom: 20px;
+  }
 }
 
 .footer__author {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-right: 140px;
   width: 20%;
+  @include desktop {
+    flex-direction: column;
+  }
 }
 
 .footer__developer-site {
@@ -38,13 +44,16 @@
 }
 
 .footer__nav {
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 }
 
 .footer__info {
   display: flex;
   justify-content: space-between;
   color: #716c68;
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .footer__text {
@@ -59,6 +68,10 @@
 
 .footer__comm {
   margin-right: 200px;
+  @include tablets {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
 }
 
 .footer__phrase-text {

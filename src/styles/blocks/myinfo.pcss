@@ -8,12 +8,19 @@
 .myinfo__container {
   display: flex;
   justify-content: center;
-
+  @include phones {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .myinfo__left {
   width: 30%;
   margin-right: 30px;
+  @include phones {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 .myinfo__right {
@@ -31,11 +38,16 @@
 .myinfo__prolog {
   margin-bottom: 30px;
   font-weight: bold;
-
+  @include phones {
+    margin-bottom: 10px;
+  }
 }
 
 .myinfo__text {
   margin-bottom: 100px;
+  @include phones {
+    margin-bottom: 45px;
+  }
 }
 
 .myinfo__ps {

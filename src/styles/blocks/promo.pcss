@@ -1,5 +1,9 @@
 .promo {
   display: flex;
+  
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .promo__site {
@@ -8,12 +12,23 @@
   color: #716c68;
   padding-top: 150px;
   text-align: right;
+
+  @include tablets {
+    padding: 0;
+    text-align: center;
+    margin-right: 0;
+  }
 }
 
 .promo__myname {
   padding-top: 130px;
-
+  line-height: 1.2;
   color: #fff;
   font-weight: bold;
   font-size: 72px;
+
+  @include tablets {
+    padding: 0;
+    text-align: center;
+  }
 }

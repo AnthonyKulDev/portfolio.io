@@ -1,8 +1,4 @@
-.welcome-section {
-  background: url(../images/content/main-bg.png) center center no-repeat, url(../images/content/main-bg2.png) center center no-repeat;
-  background-size: cover;
-  width: 100%;
-}
+
 
 .hero__container {
   display: flex;
@@ -15,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 3%;
 }
 
 .hero__logo {
@@ -24,7 +21,19 @@
 }
 
 .hero__nav {
-  margin: 0px 90px 0px;
+  margin: 0px 90px;
+  @include tablets {
+		display: none;
+	}
+}
+
+.hero__socials {
+  @include tablets {
+    margin-left: auto;
+  }
+  @include phones {
+    display: none;
+  }
 }
 
 .hero__content {
@@ -39,4 +48,8 @@
   justify-content: center;
   align-items: center;
   padding: 50px 0;
+
+  @include tablets {
+    display: none;
+  }
 }
